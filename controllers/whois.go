@@ -27,12 +27,14 @@ func Whois(w http.ResponseWriter, r *http.Request) {
 	cluster.Servers = []models.Server{}
 	for _, element := range domain.Endpoints {
 		ip := Ip(element.IpAddress, w)
-		server := models.Server{
-			Address:  element.IpAddress,
-			SslGrade: element.Grade,
-			Country:  ip.CountryCode,
-			Owner:    ip.Isp,
+		server := models.Server{}
+
+		server.Address = element.IpAddress
+		if server.SslGrade == "" {
+			server.SslGrade = element.StatusMessage
 		}
+		server.Country = ip.CountryCode
+		server.Owner = ip.Isp
 		cluster.Servers = append(cluster.Servers, server)
 	}
 
@@ -59,10 +61,10 @@ func Whois(w http.ResponseWriter, r *http.Request) {
 	cluster.Logo = logo
 	cluster.Title = title
 
-	if domain.Status != "READY" {
-		cluster.IsDown = false
-	} else {
+	if domain.Status == "ERROR" {
 		cluster.IsDown = true
+	} else {
+		cluster.IsDown = false
 	}
 
 	res, err := json.Marshal(cluster)
