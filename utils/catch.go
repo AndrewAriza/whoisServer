@@ -2,8 +2,9 @@ package utils
 
 import (
 	"encoding/json"
-	"log"
 	"net/http"
+
+	"github.com/fatih/color"
 )
 
 func Catch(w http.ResponseWriter, err error) {
@@ -15,7 +16,10 @@ func Catch(w http.ResponseWriter, err error) {
 func Response(w http.ResponseWriter, code int, msg string) {
 	payload := map[string]string{"message": msg}
 	response, _ := json.Marshal(payload)
-	log.Println(payload)
+
+	res := color.New(color.FgBlue).PrintlnFunc()
+	res(payload)
+
 	w.Header().Set("Content-Type", "application/json")
 	w.WriteHeader(code)
 	w.Write(response)
