@@ -16,6 +16,7 @@ import (
 )
 
 func main() {
+
 	r := chi.NewRouter()
 
 	r.Use(middleware.RequestID)
@@ -28,7 +29,7 @@ func main() {
 
 	warning := color.New(color.FgRed).SprintFunc()
 	if _, err := strconv.Atoi(os.Getenv("port")); err != nil {
-		log.Fatal(warning("The port is invalid!"))
+		log.Fatal(warning("The port is invalid:"), err)
 	}
 
 	utils.Preload()

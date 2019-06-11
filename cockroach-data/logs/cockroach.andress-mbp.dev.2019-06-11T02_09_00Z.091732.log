@@ -1,0 +1,32 @@
+I190611 02:09:00.629969 1 util/log/clog.go:1199  [config] file created at: 2019/06/11 02:09:00
+I190611 02:09:00.629969 1 util/log/clog.go:1199  [config] running on machine: andress-mbp
+I190611 02:09:00.629969 1 util/log/clog.go:1199  [config] binary: CockroachDB CCL v19.1.1 (x86_64-apple-darwin18.6.0, built 2019/05/22 22:44:42, go1.12.5)
+I190611 02:09:00.629969 1 util/log/clog.go:1199  [config] arguments: [cockroach start --certs-dir=certs]
+I190611 02:09:00.629969 1 util/log/clog.go:1199  line format: [IWEF]yymmdd hh:mm:ss.uuuuuu goid file:line msg utf8=✓
+I190611 02:09:00.629963 1 cli/start.go:1033  logging to directory /Users/dev/go/src/github.com/andrewariza/whoisServer/cockroach-data/logs
+W190611 02:09:00.631633 1 cli/start.go:944  Using the default setting for --cache (128 MiB).
+  A significantly larger value is usually needed for good performance.
+  If you have a dedicated server a reasonable setting is --cache=.25 (2.0 GiB).
+W190611 02:09:00.631719 1 cli/start.go:957  Using the default setting for --max-sql-memory (128 MiB).
+  A significantly larger value is usually needed in production.
+  If you have a dedicated server a reasonable setting is --max-sql-memory=.25 (2.0 GiB).
+I190611 02:09:00.631768 1 cli/start.go:1082  CockroachDB CCL v19.1.1 (x86_64-apple-darwin18.6.0, built 2019/05/22 22:44:42, go1.12.5)
+I190611 02:09:00.738425 1 server/config.go:386  system total memory: 8.0 GiB
+I190611 02:09:00.738514 1 server/config.go:388  server configuration:
+max offset             500000000
+cache size             128 MiB
+SQL memory pool size   128 MiB
+scan interval          10m0s
+scan min idle time     10ms
+scan max idle time     1s
+event log enabled      true
+I190611 02:09:00.738589 1 cli/start.go:929  process identity: uid 501 euid 501 gid 20 egid 20
+I190611 02:09:00.738622 1 cli/start.go:554  starting cockroach node
+E190611 02:09:00.763770 1 cli/error.go:229  cannot load certificates.
+Check your certificate settings, set --certs-dir, or use --insecure for insecure clusters.
+
+problem with node certificate: not found
+Error: cannot load certificates.
+Check your certificate settings, set --certs-dir, or use --insecure for insecure clusters.
+
+problem with node certificate: not found

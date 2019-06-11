@@ -106,6 +106,18 @@
   version = "v1.2.4"
 
 [[projects]]
+  digest = "1:bdd53b87de8185da386bae179c84d4848854c6870bacacf6a154fe63e2e750f7"
+  name = "github.com/lib/pq"
+  packages = [
+    ".",
+    "oid",
+    "scram",
+  ]
+  pruneopts = "UT"
+  revision = "bc6a3c0594130b1e34005880bc600b6d3f49fa7f"
+  version = "v1.1.1"
+
+[[projects]]
   digest = "1:c658e84ad3916da105a761660dcaeb01e63416c8ec7bc62256a9b411a05fcd67"
   name = "github.com/mattn/go-colorable"
   packages = ["."]
@@ -210,6 +222,7 @@
     "github.com/go-chi/chi",
     "github.com/go-chi/chi/middleware",
     "github.com/gocolly/colly",
+    "github.com/lib/pq",
   ]
   solver-name = "gps-cdcl"
   solver-version = 1

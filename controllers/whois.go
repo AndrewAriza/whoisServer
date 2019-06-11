@@ -22,6 +22,22 @@ func Whois(w http.ResponseWriter, r *http.Request) {
 	err = json.NewDecoder(response.Body).Decode(&domain)
 	utils.Catch(w, err)
 
+	server, err := json.Marshal(domain)
+	utils.Catch(w, err)
+
+	Create(w, domainName, string(server))
+
+	ssl := []string{
+		"M", "T",
+		"F-", "F", "F+",
+		"E-", "E", "E+",
+		"D-", "D", "D+",
+		"C-", "C", "C+",
+		"B-", "B", "B+",
+		"A-", "A", "A+"}
+
+	grade := 0
+
 	cluster := models.Cluster{}
 
 	cluster.Servers = []models.Server{}
@@ -30,8 +46,15 @@ func Whois(w http.ResponseWriter, r *http.Request) {
 		server := models.Server{}
 
 		server.Address = element.IpAddress
-		if server.SslGrade == "" {
+		if element.Grade == "" {
 			server.SslGrade = element.StatusMessage
+		} else {
+			server.SslGrade = element.Grade
+			for i, _ := range ssl {
+				if (ssl[i] == server.SslGrade) && ((i < grade) || (grade == 0)) {
+					grade = i
+				}
+			}
 		}
 		server.Country = ip.CountryCode
 		server.Owner = ip.Isp
@@ -46,18 +69,18 @@ func Whois(w http.ResponseWriter, r *http.Request) {
 	c := colly.NewCollector()
 
 	c.OnHTML("head", func(e *colly.HTMLElement) {
-		logo = e.ChildAttr("link[rel='shortcut icon']", "href")
+		logo = e.ChildAttr(`link[rel="shortcut icon"]`, "href")
 		title = e.ChildText("title")
 		if logo == "" {
-			logo = e.ChildAttr("link[rel='icon']", "href")
+			logo = e.ChildAttr(`link[rel="icon"]`, "href")
 		}
 	})
 
 	c.Visit("https://" + domainName)
 
-	cluster.ServersChanged = true
-	cluster.SslGrade = "B"
-	cluster.PreviousSslGrade = "A+"
+	cluster.ServersChanged = true //TODO
+	cluster.SslGrade = ssl[grade]
+	cluster.PreviousSslGrade = ssl[grade] //TODO
 	cluster.Logo = logo
 	cluster.Title = title
 
@@ -70,5 +93,5 @@ func Whois(w http.ResponseWriter, r *http.Request) {
 	res, err := json.Marshal(cluster)
 	utils.Catch(w, err)
 
-	w.Write([]byte(res))
+	w.Write(res)
 }
