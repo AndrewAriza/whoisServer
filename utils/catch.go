@@ -9,18 +9,15 @@ import (
 
 func Catch(w http.ResponseWriter, err error) {
 	if err != nil {
-		Response(w, 500, err.Error())
+		warning := color.New(color.FgRed).PrintlnFunc()
+		payload := map[string]string{"message": err.Error()}
+		response, _ := json.Marshal(payload)
+
+		warning("ERROR :::", payload)
+
+		w.Header().Set("Content-Type", "application/json")
+		w.WriteHeader(500)
+		w.Write(response)
+		panic(nil)
 	}
-}
-
-func Response(w http.ResponseWriter, code int, msg string) {
-	payload := map[string]string{"message": msg}
-	response, _ := json.Marshal(payload)
-
-	res := color.New(color.FgBlue).PrintlnFunc()
-	res(payload)
-
-	w.Header().Set("Content-Type", "application/json")
-	w.WriteHeader(code)
-	w.Write(response)
 }

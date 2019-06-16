@@ -1,0 +1,93 @@
+I190614 03:47:54.123876 1 util/log/clog.go:1199  [config] file created at: 2019/06/14 03:47:54
+I190614 03:47:54.123876 1 util/log/clog.go:1199  [config] running on machine: andress-mbp
+I190614 03:47:54.123876 1 util/log/clog.go:1199  [config] binary: CockroachDB CCL v19.1.1 (x86_64-apple-darwin18.6.0, built 2019/05/22 22:44:42, go1.12.5)
+I190614 03:47:54.123876 1 util/log/clog.go:1199  [config] arguments: [cockroach start --certs-dir=certs --listen-addr=127.0.0.1]
+I190614 03:47:54.123876 1 util/log/clog.go:1199  line format: [IWEF]yymmdd hh:mm:ss.uuuuuu goid file:line msg utf8=✓
+I190614 03:47:54.123872 1 cli/start.go:1033  logging to directory /Users/dev/go/src/github.com/andrewariza/whoisServer/cockroach-data/logs
+W190614 03:47:54.124542 1 cli/start.go:944  Using the default setting for --cache (128 MiB).
+  A significantly larger value is usually needed for good performance.
+  If you have a dedicated server a reasonable setting is --cache=.25 (2.0 GiB).
+W190614 03:47:54.124598 1 cli/start.go:957  Using the default setting for --max-sql-memory (128 MiB).
+  A significantly larger value is usually needed in production.
+  If you have a dedicated server a reasonable setting is --max-sql-memory=.25 (2.0 GiB).
+I190614 03:47:54.124624 1 cli/start.go:1082  CockroachDB CCL v19.1.1 (x86_64-apple-darwin18.6.0, built 2019/05/22 22:44:42, go1.12.5)
+I190614 03:47:54.226751 1 server/config.go:386  system total memory: 8.0 GiB
+I190614 03:47:54.226845 1 server/config.go:388  server configuration:
+max offset             500000000
+cache size             128 MiB
+SQL memory pool size   128 MiB
+scan interval          10m0s
+scan min idle time     10ms
+scan max idle time     1s
+event log enabled      true
+I190614 03:47:54.226921 1 cli/start.go:929  process identity: uid 501 euid 501 gid 20 egid 20
+I190614 03:47:54.226946 1 cli/start.go:554  starting cockroach node
+I190614 03:47:54.234975 54 storage/engine/rocksdb.go:613  opening rocksdb instance at "/Users/dev/go/src/github.com/andrewariza/whoisServer/cockroach-data/cockroach-temp461127281"
+I190614 03:47:54.262118 54 server/server.go:879  [n?] monitoring forward clock jumps based on server.clock.forward_jump_check_enabled
+I190614 03:47:54.262320 54 base/addr_validation.go:279  [n?] server certificate addresses: IP=; DNS=localhost,andress-mbp.lan; CN=node
+W190614 03:47:54.262361 54 base/addr_validation.go:293  [n?] listen address "127.0.0.1" and advertise address "127.0.0.1" not in node certificate (IP=; DNS=localhost,andress-mbp.lan; CN=node)
+Secure node-node and SQL connections are likely to fail.
+Consider extending the node certificate or tweak --listen-addr/--advertise-addr.
+I190614 03:47:54.262372 54 base/addr_validation.go:319  [n?] web UI certificate addresses: IP=; DNS=localhost,andress-mbp.lan; CN=node
+W190614 03:47:54.262964 54 server/config_unix.go:77  adjusting the limit for open file descriptors failed: invalid argument
+W190614 03:47:54.262994 54 server/config_unix.go:101  soft open file descriptor limit 10240 is under the recommended limit 15000; this may decrease performance
+please see https://www.cockroachlabs.com/docs/v19.1/recommended-production-settings.html for more details
+I190614 03:47:54.263070 54 storage/engine/rocksdb.go:613  opening rocksdb instance at "/Users/dev/go/src/github.com/andrewariza/whoisServer/cockroach-data"
+W190614 03:47:54.264472 54 storage/engine/rocksdb.go:127  [rocksdb] [/tmp/cockroach-20190522-91575-1ewc686/cockroach-v19.1.1/src/github.com/cockroachdb/cockroach/c-deps/rocksdb/db/version_set.cc:2566] More existing levels in DB than needed. max_bytes_for_level_multiplier may not be guaranteed.
+W190614 03:47:54.265943 85 vendor/google.golang.org/grpc/server.go:603  grpc: Server.Serve failed to complete security handshake from "pipe": remote error: tls: bad certificate
+W190614 03:47:54.265974 61 vendor/google.golang.org/grpc/clientconn.go:1304  grpc: addrConn.createTransport failed to connect to {127.0.0.1:26257 0  <nil>}. Err :connection error: desc = "transport: authentication handshake failed: x509: cannot validate certificate for 127.0.0.1 because it doesn't contain any IP SANs". Reconnecting...
+W190614 03:47:54.274053 54 storage/engine/rocksdb.go:127  [rocksdb] [/tmp/cockroach-20190522-91575-1ewc686/cockroach-v19.1.1/src/github.com/cockroachdb/cockroach/c-deps/rocksdb/db/version_set.cc:2566] More existing levels in DB than needed. max_bytes_for_level_multiplier may not be guaranteed.
+I190614 03:47:54.283765 54 server/config.go:494  [n?] 1 storage engine initialized
+I190614 03:47:54.283824 54 server/config.go:497  [n?] RocksDB cache size: 128 MiB
+I190614 03:47:54.283847 54 server/config.go:497  [n?] store 0: RocksDB, max size 0 B, max open file limit 9984
+I190614 03:47:54.302106 54 server/server.go:929  [n?] Sleeping till wall time 1560484074301795000 to catches up to 1560484074762054001 to ensure monotonicity. Delta: 460.259001ms
+I190614 03:47:54.766689 54 gossip/gossip.go:392  [n1] NodeDescriptor set to node_id:1 address:<network_field:"tcp" address_field:"127.0.0.1:26257" > attrs:<> locality:<> ServerVersion:<major_val:19 minor_val:1 patch:0 unstable:0 > build_tag:"v19.1.1" started_at:1560484074766336000 
+W190614 03:47:54.780268 141 storage/replica_range_lease.go:506  can't determine lease status due to node liveness error: node not in the liveness table
+W190614 03:47:54.780346 141 storage/store.go:1525  [n1,s1,r6/1:/Table/{SystemCon…-11}] could not gossip system config: [NotLeaseHolderError] r6: replica (n1,s1):1 not lease holder; lease holder unknown
+I190614 03:47:54.781333 54 server/node.go:461  [n1] initialized store [n1,s1]: disk (capacity=234 GiB, available=12 GiB, used=4.6 MiB, logicalBytes=24 MiB), ranges=21, leases=0, queries=0.00, writes=0.00, bytesPerReplica={p10=0.00 p25=0.00 p50=512.00 p75=8995.00 p90=25579.00 pMax=24611784.00}, writesPerReplica={p10=0.00 p25=0.00 p50=0.00 p75=0.00 p90=0.00 pMax=0.00}
+I190614 03:47:54.781574 54 storage/stores.go:244  [n1] read 0 node addresses from persistent storage
+I190614 03:47:54.781699 54 server/node.go:699  [n1] connecting to gossip network to verify cluster ID...
+I190614 03:47:54.781717 54 server/node.go:719  [n1] node connected via gossip and verified as part of cluster "4d3d9f93-4686-4d62-b6d0-15473f2b84b4"
+I190614 03:47:54.781833 54 server/node.go:542  [n1] node=1: started with [<no-attributes>=/Users/dev/go/src/github.com/andrewariza/whoisServer/cockroach-data] engine(s) and attributes []
+I190614 03:47:54.782112 54 server/server.go:1585  [n1] starting https server at 127.0.0.1:8080 (use: 127.0.0.1:8080)
+I190614 03:47:54.782142 54 server/server.go:1587  [n1] starting grpc/postgres server at 127.0.0.1:26257
+I190614 03:47:54.782165 54 server/server.go:1588  [n1] advertising CockroachDB node at 127.0.0.1:26257
+W190614 03:47:54.782207 54 jobs/registry.go:341  [n1] unable to get node liveness: node not in the liveness table
+I190614 03:47:54.787678 170 storage/node_liveness.go:453  [n1,hb] heartbeat failed on epoch increment; retrying
+I190614 03:47:54.792540 54 server/server.go:1653  [n1] done ensuring all necessary migrations have run
+I190614 03:47:54.792577 54 server/server.go:1656  [n1] serving sql connections
+I190614 03:47:54.792740 54 cli/start.go:689  [config] clusterID: 4d3d9f93-4686-4d62-b6d0-15473f2b84b4
+I190614 03:47:54.792778 54 cli/start.go:697  node startup completed:
+CockroachDB node starting at 2019-06-14 03:47:54.792663 +0000 UTC (took 0.7s)
+build:               CCL v19.1.1 @ 2019/05/22 22:44:42 (go1.12.5)
+webui:               https://127.0.0.1:8080
+sql:                 postgresql://root@127.0.0.1:26257?sslcert=certs%2Fclient.root.crt&sslkey=certs%2Fclient.root.key&sslmode=verify-full&sslrootcert=certs%2Fca.crt
+client flags:        cockroach <client cmd> --host=127.0.0.1:26257 --certs-dir=certs
+logs:                /Users/dev/go/src/github.com/andrewariza/whoisServer/cockroach-data/logs
+temp dir:            /Users/dev/go/src/github.com/andrewariza/whoisServer/cockroach-data/cockroach-temp461127281
+external I/O path:   /Users/dev/go/src/github.com/andrewariza/whoisServer/cockroach-data/extern
+store[0]:            path=/Users/dev/go/src/github.com/andrewariza/whoisServer/cockroach-data
+status:              restarted pre-existing node
+clusterID:           4d3d9f93-4686-4d62-b6d0-15473f2b84b4
+nodeID:              1
+I190614 03:47:54.825591 46 server/server_update.go:64  [n1] failed attempt to upgrade cluster version, error: node 1 not running (UNAVAILABLE), cannot determine version
+I190614 03:47:54.835518 49 sql/event_log.go:135  [n1] Event: "node_restart", target: 1, info: {Descriptor:{NodeID:1 Address:127.0.0.1:26257 Attrs: Locality: ServerVersion:19.1 BuildTag:v19.1.1 StartedAt:1560484074766336000 LocalityAddress:[] XXX_NoUnkeyedLiteral:{} XXX_sizecache:0} ClusterID:4d3d9f93-4686-4d62-b6d0-15473f2b84b4 StartedAt:1560484074766336000 LastUp:1560484064936313000}
+W190614 03:47:55.267122 61 vendor/google.golang.org/grpc/clientconn.go:1304  grpc: addrConn.createTransport failed to connect to {127.0.0.1:26257 0  <nil>}. Err :connection error: desc = "transport: authentication handshake failed: io: read/write on closed pipe". Reconnecting...
+I190614 03:47:55.881445 46 server/server_update.go:67  [n1] no need to upgrade, cluster already at the newest version
+I190614 03:47:56.520050 65 gossip/gossip.go:1510  [n1] node has connected to cluster via gossip
+I190614 03:47:56.520187 65 storage/stores.go:263  [n1] wrote 0 node addresses to persistent storage
+W190614 03:47:56.849592 61 vendor/google.golang.org/grpc/clientconn.go:1304  grpc: addrConn.createTransport failed to connect to {127.0.0.1:26257 0  <nil>}. Err :connection error: desc = "transport: authentication handshake failed: io: read/write on closed pipe". Reconnecting...
+W190614 03:47:59.380812 61 vendor/google.golang.org/grpc/clientconn.go:1304  grpc: addrConn.createTransport failed to connect to {127.0.0.1:26257 0  <nil>}. Err :connection error: desc = "transport: authentication handshake failed: io: read/write on closed pipe". Reconnecting...
+W190614 03:48:02.956636 61 vendor/google.golang.org/grpc/clientconn.go:1304  grpc: addrConn.createTransport failed to connect to {127.0.0.1:26257 0  <nil>}. Err :connection error: desc = "transport: authentication handshake failed: io: read/write on closed pipe". Reconnecting...
+I190614 03:48:04.301999 1 cli/start.go:765  received signal 'interrupt'
+I190614 03:48:04.316048 1 cli/start.go:830  initiating graceful shutdown of server
+I190614 03:48:04.327149 245 util/stop/stopper.go:546  [server drain process] quiescing; tasks left:
+1      [async] intent_resolver_ir_batcher
+1      [async] intent_resolver_gc_batcher
+1      [async] closedts-rangefeed-subscriber
+W190614 03:48:04.337419 61 vendor/google.golang.org/grpc/clientconn.go:953  Failed to dial 127.0.0.1:26257: context canceled; please retry.
+I190614 03:48:04.362341 245 storage/engine/rocksdb.go:753  closing rocksdb instance at "/Users/dev/go/src/github.com/andrewariza/whoisServer/cockroach-data/cockroach-temp461127281"
+I190614 03:48:04.405505 245 storage/engine/rocksdb.go:753  closing rocksdb instance at "/Users/dev/go/src/github.com/andrewariza/whoisServer/cockroach-data"
+I190614 03:48:04.423778 1 cli/start.go:876  server drained and shutdown completed
+I190614 03:48:04.438007 1 cli/error.go:229  interrupted
+Error: interrupted

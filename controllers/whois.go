@@ -3,6 +3,8 @@ package controllers
 import (
 	"encoding/json"
 	"net/http"
+	"reflect"
+	"strings"
 	"time"
 
 	"github.com/andrewariza/whoisServer/models"
@@ -12,20 +14,18 @@ import (
 )
 
 func Whois(w http.ResponseWriter, r *http.Request) {
-	domainName := chi.URLParam(r, "domain")
+	domainName := strings.ToLower(chi.URLParam(r, "domain"))
 
 	client := &http.Client{Timeout: 10 * time.Second}
 	response, err := client.Get("https://api.ssllabs.com/api/v3/analyze?host=" + domainName)
 	utils.Catch(w, err)
 
-	var domain models.Domain
+	domain := models.Domain{}
 	err = json.NewDecoder(response.Body).Decode(&domain)
 	utils.Catch(w, err)
 
 	server, err := json.Marshal(domain)
 	utils.Catch(w, err)
-
-	Create(w, domainName, string(server))
 
 	ssl := []string{
 		"M", "T",
@@ -76,11 +76,15 @@ func Whois(w http.ResponseWriter, r *http.Request) {
 		}
 	})
 
-	c.Visit("https://" + domainName)
+	c.Visit("http://" + domainName)
 
-	cluster.ServersChanged = true //TODO
+	sslGrade := ssl[grade]
+
+	previousSslGrade, previousDomain := Find(w, domainName)
+
+	cluster.ServersChanged = !reflect.DeepEqual(previousDomain, domain)
 	cluster.SslGrade = ssl[grade]
-	cluster.PreviousSslGrade = ssl[grade] //TODO
+	cluster.PreviousSslGrade = previousSslGrade
 	cluster.Logo = logo
 	cluster.Title = title
 
@@ -89,6 +93,8 @@ func Whois(w http.ResponseWriter, r *http.Request) {
 	} else {
 		cluster.IsDown = false
 	}
+
+	Create(w, domainName, sslGrade, string(server))
 
 	res, err := json.Marshal(cluster)
 	utils.Catch(w, err)

@@ -25,6 +25,8 @@ func main() {
 
 	r.Use(middleware.Timeout(time.Minute))
 
+	r.Get("/", controllers.Record)
+
 	r.Get("/{domain}", controllers.Whois)
 
 	warning := color.New(color.FgRed).SprintFunc()

@@ -1,0 +1,116 @@
+I190614 04:11:59.751026 1 util/log/clog.go:1199  [config] file created at: 2019/06/14 04:11:59
+I190614 04:11:59.751026 1 util/log/clog.go:1199  [config] running on machine: andress-mbp
+I190614 04:11:59.751026 1 util/log/clog.go:1199  [config] binary: CockroachDB CCL v19.1.1 (x86_64-apple-darwin18.6.0, built 2019/05/22 22:44:42, go1.12.5)
+I190614 04:11:59.751026 1 util/log/clog.go:1199  [config] arguments: [cockroach start --certs-dir=certs]
+I190614 04:11:59.751026 1 util/log/clog.go:1199  line format: [IWEF]yymmdd hh:mm:ss.uuuuuu goid file:line msg utf8=✓
+I190614 04:11:59.751023 1 cli/start.go:1033  logging to directory /Users/dev/go/src/github.com/andrewariza/whoisServer/cockroach-data/logs
+W190614 04:11:59.751857 1 cli/start.go:944  Using the default setting for --cache (128 MiB).
+  A significantly larger value is usually needed for good performance.
+  If you have a dedicated server a reasonable setting is --cache=.25 (2.0 GiB).
+W190614 04:11:59.751920 1 cli/start.go:957  Using the default setting for --max-sql-memory (128 MiB).
+  A significantly larger value is usually needed in production.
+  If you have a dedicated server a reasonable setting is --max-sql-memory=.25 (2.0 GiB).
+I190614 04:11:59.751971 1 cli/start.go:1082  CockroachDB CCL v19.1.1 (x86_64-apple-darwin18.6.0, built 2019/05/22 22:44:42, go1.12.5)
+I190614 04:11:59.858478 1 server/config.go:386  system total memory: 8.0 GiB
+I190614 04:11:59.858547 1 server/config.go:388  server configuration:
+max offset             500000000
+cache size             128 MiB
+SQL memory pool size   128 MiB
+scan interval          10m0s
+scan min idle time     10ms
+scan max idle time     1s
+event log enabled      true
+I190614 04:11:59.858622 1 cli/start.go:929  process identity: uid 501 euid 501 gid 20 egid 20
+I190614 04:11:59.858646 1 cli/start.go:554  starting cockroach node
+I190614 04:11:59.881046 54 storage/engine/rocksdb.go:613  opening rocksdb instance at "/Users/dev/go/src/github.com/andrewariza/whoisServer/cockroach-data/cockroach-temp528884928"
+I190614 04:11:59.906657 54 server/server.go:879  [n?] monitoring forward clock jumps based on server.clock.forward_jump_check_enabled
+I190614 04:11:59.907002 54 base/addr_validation.go:279  [n?] server certificate addresses: IP=; DNS=localhost,andress-mbp.lan; CN=node
+W190614 04:11:59.907072 54 base/addr_validation.go:293  [n?] listen address "::" not in node certificate (IP=; DNS=localhost,andress-mbp.lan; CN=node)
+Secure node-node and SQL connections are likely to fail.
+Consider extending the node certificate or tweak --listen-addr/--advertise-addr.
+I190614 04:11:59.907091 54 base/addr_validation.go:319  [n?] web UI certificate addresses: IP=; DNS=localhost,andress-mbp.lan; CN=node
+W190614 04:11:59.907682 54 server/config_unix.go:77  adjusting the limit for open file descriptors failed: invalid argument
+W190614 04:11:59.907716 54 server/config_unix.go:101  soft open file descriptor limit 10240 is under the recommended limit 15000; this may decrease performance
+please see https://www.cockroachlabs.com/docs/v19.1/recommended-production-settings.html for more details
+I190614 04:11:59.907808 54 storage/engine/rocksdb.go:613  opening rocksdb instance at "/Users/dev/go/src/github.com/andrewariza/whoisServer/cockroach-data"
+W190614 04:11:59.913740 54 storage/engine/rocksdb.go:127  [rocksdb] [/tmp/cockroach-20190522-91575-1ewc686/cockroach-v19.1.1/src/github.com/cockroachdb/cockroach/c-deps/rocksdb/db/version_set.cc:2566] More existing levels in DB than needed. max_bytes_for_level_multiplier may not be guaranteed.
+W190614 04:11:59.928962 54 storage/engine/rocksdb.go:127  [rocksdb] [/tmp/cockroach-20190522-91575-1ewc686/cockroach-v19.1.1/src/github.com/cockroachdb/cockroach/c-deps/rocksdb/db/version_set.cc:2566] More existing levels in DB than needed. max_bytes_for_level_multiplier may not be guaranteed.
+I190614 04:11:59.935381 54 server/config.go:494  [n?] 1 storage engine initialized
+I190614 04:11:59.935398 54 server/config.go:497  [n?] RocksDB cache size: 128 MiB
+I190614 04:11:59.935404 54 server/config.go:497  [n?] store 0: RocksDB, max size 0 B, max open file limit 9984
+W190614 04:11:59.940171 54 cli/start.go:896  neither --listen-addr nor --advertise-addr was specified.
+The server will advertise "andress-mbp.lan" to other nodes, is this routable?
+
+Consider using:
+- for local-only servers:  --listen-addr=localhost
+- for multi-node clusters: --advertise-addr=<host/IP addr>
+I190614 04:11:59.961338 54 server/server.go:929  [n?] Sleeping till wall time 1560485519961190000 to catches up to 1560485520406544001 to ensure monotonicity. Delta: 445.354001ms
+I190614 04:12:00.412812 54 gossip/gossip.go:392  [n1] NodeDescriptor set to node_id:1 address:<network_field:"tcp" address_field:"andress-mbp.lan:26257" > attrs:<> locality:<> ServerVersion:<major_val:19 minor_val:1 patch:0 unstable:0 > build_tag:"v19.1.1" started_at:1560485520412425000 
+W190614 04:12:00.449154 144 storage/replica_range_lease.go:506  can't determine lease status due to node liveness error: node not in the liveness table
+W190614 04:12:00.449222 144 storage/store.go:1525  [n1,s1,r6/1:/Table/{SystemCon…-11}] could not gossip system config: [NotLeaseHolderError] r6: replica (n1,s1):1 not lease holder; lease holder unknown
+I190614 04:12:00.450369 54 server/node.go:461  [n1] initialized store [n1,s1]: disk (capacity=234 GiB, available=12 GiB, used=4.8 MiB, logicalBytes=27 MiB), ranges=21, leases=0, queries=0.00, writes=0.00, bytesPerReplica={p10=0.00 p25=0.00 p50=512.00 p75=11230.00 p90=25613.00 pMax=28352040.00}, writesPerReplica={p10=0.00 p25=0.00 p50=0.00 p75=0.00 p90=0.00 pMax=0.00}
+I190614 04:12:00.452176 54 storage/stores.go:244  [n1] read 0 node addresses from persistent storage
+I190614 04:12:00.452494 54 server/node.go:699  [n1] connecting to gossip network to verify cluster ID...
+I190614 04:12:00.452548 54 server/node.go:719  [n1] node connected via gossip and verified as part of cluster "4d3d9f93-4686-4d62-b6d0-15473f2b84b4"
+I190614 04:12:00.452672 54 server/node.go:542  [n1] node=1: started with [<no-attributes>=/Users/dev/go/src/github.com/andrewariza/whoisServer/cockroach-data] engine(s) and attributes []
+I190614 04:12:00.454611 54 server/server.go:1585  [n1] starting https server at [::]:8080 (use: andress-mbp.lan:8080)
+I190614 04:12:00.454664 54 server/server.go:1587  [n1] starting grpc/postgres server at [::]:26257
+I190614 04:12:00.454767 54 server/server.go:1588  [n1] advertising CockroachDB node at andress-mbp.lan:26257
+I190614 04:12:00.467245 54 server/server.go:1653  [n1] done ensuring all necessary migrations have run
+I190614 04:12:00.467270 54 server/server.go:1656  [n1] serving sql connections
+I190614 04:12:00.467449 54 cli/start.go:689  [config] clusterID: 4d3d9f93-4686-4d62-b6d0-15473f2b84b4
+I190614 04:12:00.467480 54 cli/start.go:697  node startup completed:
+CockroachDB node starting at 2019-06-14 04:12:00.467358 +0000 UTC (took 0.7s)
+build:               CCL v19.1.1 @ 2019/05/22 22:44:42 (go1.12.5)
+webui:               https://andress-mbp.lan:8080
+sql:                 postgresql://root@andress-mbp.lan:26257?sslcert=certs%2Fclient.root.crt&sslkey=certs%2Fclient.root.key&sslmode=verify-full&sslrootcert=certs%2Fca.crt
+client flags:        cockroach <client cmd> --host=andress-mbp.lan:26257 --certs-dir=certs
+logs:                /Users/dev/go/src/github.com/andrewariza/whoisServer/cockroach-data/logs
+temp dir:            /Users/dev/go/src/github.com/andrewariza/whoisServer/cockroach-data/cockroach-temp528884928
+external I/O path:   /Users/dev/go/src/github.com/andrewariza/whoisServer/cockroach-data/extern
+store[0]:            path=/Users/dev/go/src/github.com/andrewariza/whoisServer/cockroach-data
+status:              restarted pre-existing node
+clusterID:           4d3d9f93-4686-4d62-b6d0-15473f2b84b4
+nodeID:              1
+I190614 04:12:00.498061 181 server/server_update.go:67  [n1] no need to upgrade, cluster already at the newest version
+I190614 04:12:00.507791 184 sql/event_log.go:135  [n1] Event: "node_restart", target: 1, info: {Descriptor:{NodeID:1 Address:andress-mbp.lan:26257 Attrs: Locality: ServerVersion:19.1 BuildTag:v19.1.1 StartedAt:1560485520412425000 LocalityAddress:[] XXX_NoUnkeyedLiteral:{} XXX_sizecache:0} ClusterID:4d3d9f93-4686-4d62-b6d0-15473f2b84b4 StartedAt:1560485520412425000 LastUp:1560485509669463000}
+E190614 04:12:01.582082 201 server.go:3010  http: TLS handshake error from [::1]:64884: remote error: tls: unknown certificate
+I190614 04:12:02.071409 98 gossip/gossip.go:1510  [n1] node has connected to cluster via gossip
+I190614 04:12:02.071591 98 storage/stores.go:263  [n1] wrote 0 node addresses to persistent storage
+W190614 04:12:10.456056 163 server/status/runtime.go:423  [n1] unable to get file descriptor usage (will not try again): not implemented on darwin
+I190614 04:12:10.459664 99 storage/store.go:4204  [n1,s1] sstables (read amplification = 2):
+0 [ 45K 1 ]: 45K
+6 [  3M 1 ]: 3M
+I190614 04:12:10.460851 99 storage/store.go:4205  [n1,s1] 
+** Compaction Stats [default] **
+Level    Files   Size     Score Read(GB)  Rn(GB) Rnp1(GB) Write(GB) Wnew(GB) Moved(GB) W-Amp Rd(MB/s) Wr(MB/s) Comp(sec) Comp(cnt) Avg(sec) KeyIn KeyDrop
+----------------------------------------------------------------------------------------------------------------------------------------------------------
+  L0      1/0   45.06 KB   0.5      0.0     0.0      0.0       0.0      0.0       0.0   1.0      0.0      5.5         0         1    0.008       0      0
+  L6      1/0    3.44 MB   0.0      0.0     0.0      0.0       0.0      0.0       0.0   0.0      0.0      0.0         0         0    0.000       0      0
+ Sum      2/0    3.48 MB   0.0      0.0     0.0      0.0       0.0      0.0       0.0   1.0      0.0      5.5         0         1    0.008       0      0
+ Int      0/0    0.00 KB   0.0      0.0     0.0      0.0       0.0      0.0       0.0   1.0      0.0      5.5         0         1    0.008       0      0
+Uptime(secs): 10.5 total, 10.5 interval
+Flush(GB): cumulative 0.000, interval 0.000
+AddFile(GB): cumulative 0.000, interval 0.000
+AddFile(Total Files): cumulative 0, interval 0
+AddFile(L0 Files): cumulative 0, interval 0
+AddFile(Keys): cumulative 0, interval 0
+Cumulative compaction: 0.00 GB write, 0.00 MB/s write, 0.00 GB read, 0.00 MB/s read, 0.0 seconds
+Interval compaction: 0.00 GB write, 0.00 MB/s write, 0.00 GB read, 0.00 MB/s read, 0.0 seconds
+Stalls(count): 0 level0_slowdown, 0 level0_slowdown_with_compaction, 0 level0_numfiles, 0 level0_numfiles_with_compaction, 0 stop for pending_compaction_bytes, 0 slowdown for pending_compaction_bytes, 0 memtable_compaction, 0 memtable_slowdown, interval 0 total count
+estimated_pending_compaction_bytes: 0 B
+I190614 04:12:10.470350 163 server/status/runtime.go:500  [n1] runtime stats: 106 MiB RSS, 136 goroutines, 85 MiB/32 MiB/128 MiB GO alloc/idle/total, 17 MiB/20 MiB CGO alloc/total, 0.0 CGO/sec, 0.0/0.0 %(u/s)time, 0.0 %gc (9x), 16 KiB/20 KiB (r/w)net
+I190614 04:12:10.852706 1 cli/start.go:765  received signal 'interrupt'
+I190614 04:12:10.868942 1 cli/start.go:830  initiating graceful shutdown of server
+I190614 04:12:10.877697 263 util/stop/stopper.go:546  [server drain process] quiescing; tasks left:
+1      [async] intent_resolver_ir_batcher
+1      [async] intent_resolver_gc_batcher
+1      [async] closedts-rangefeed-subscriber
+I190614 04:12:10.913064 263 util/stop/stopper.go:546  [server drain process] quiescing; tasks left:
+1      [async] intent_resolver_ir_batcher
+1      [async] closedts-rangefeed-subscriber
+I190614 04:12:10.935089 263 storage/engine/rocksdb.go:753  closing rocksdb instance at "/Users/dev/go/src/github.com/andrewariza/whoisServer/cockroach-data/cockroach-temp528884928"
+I190614 04:12:10.958560 263 storage/engine/rocksdb.go:753  closing rocksdb instance at "/Users/dev/go/src/github.com/andrewariza/whoisServer/cockroach-data"
+I190614 04:12:10.984393 1 cli/start.go:876  server drained and shutdown completed
+I190614 04:12:10.999311 1 cli/error.go:229  interrupted
+Error: interrupted

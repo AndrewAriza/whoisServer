@@ -2951,3 +2951,22 @@ gossip client (0/3 cur/max conns)
 gossip server (0/3 cur/max conns, infos 0/0 sent/received, bytes 0B/0B sent/received)
 I190611 05:07:45.589723 177 server/status/runtime.go:500  [n1] runtime stats: 165 MiB RSS, 148 goroutines, 112 MiB/40 MiB/174 MiB GO alloc/idle/total, 33 MiB/47 MiB CGO alloc/total, 36.1 CGO/sec, 0.7/0.5 %(u/s)time, 0.0 %gc (0x), 9.2 KiB/7.0 KiB (r/w)net
 I190611 05:07:55.612664 177 server/status/runtime.go:500  [n1] runtime stats: 165 MiB RSS, 148 goroutines, 119 MiB/34 MiB/174 MiB GO alloc/idle/total, 33 MiB/47 MiB CGO alloc/total, 24.3 CGO/sec, 0.6/0.5 %(u/s)time, 0.0 %gc (0x), 6.0 KiB/5.8 KiB (r/w)net
+I190611 05:08:05.649495 177 server/status/runtime.go:500  [n1] runtime stats: 165 MiB RSS, 148 goroutines, 125 MiB/29 MiB/174 MiB GO alloc/idle/total, 33 MiB/47 MiB CGO alloc/total, 27.0 CGO/sec, 0.6/0.5 %(u/s)time, 0.0 %gc (0x), 14 KiB/7.2 KiB (r/w)net
+I190611 05:08:15.671645 177 server/status/runtime.go:500  [n1] runtime stats: 165 MiB RSS, 149 goroutines, 131 MiB/24 MiB/174 MiB GO alloc/idle/total, 33 MiB/47 MiB CGO alloc/total, 24.5 CGO/sec, 0.6/0.5 %(u/s)time, 0.0 %gc (0x), 8.6 KiB/8.6 KiB (r/w)net
+I190611 05:08:25.701408 177 server/status/runtime.go:500  [n1] runtime stats: 165 MiB RSS, 150 goroutines, 137 MiB/18 MiB/174 MiB GO alloc/idle/total, 33 MiB/47 MiB CGO alloc/total, 33.2 CGO/sec, 0.8/0.6 %(u/s)time, 0.0 %gc (0x), 91 KiB/2.8 MiB (r/w)net
+I190611 05:08:35.717447 177 server/status/runtime.go:500  [n1] runtime stats: 165 MiB RSS, 149 goroutines, 143 MiB/12 MiB/174 MiB GO alloc/idle/total, 33 MiB/47 MiB CGO alloc/total, 27.1 CGO/sec, 0.6/0.6 %(u/s)time, 0.0 %gc (0x), 47 KiB/23 KiB (r/w)net
+I190611 05:08:43.086307 173 gossip/gossip.go:557  [n1] gossip status (ok, 1 node)
+gossip client (0/3 cur/max conns)
+gossip server (0/3 cur/max conns, infos 0/0 sent/received, bytes 0B/0B sent/received)
+I190611 05:08:45.739398 177 server/status/runtime.go:500  [n1] runtime stats: 166 MiB RSS, 146 goroutines, 149 MiB/6.8 MiB/174 MiB GO alloc/idle/total, 41 MiB/55 MiB CGO alloc/total, 33.2 CGO/sec, 0.9/0.5 %(u/s)time, 0.0 %gc (1x), 16 KiB/8.3 KiB (r/w)net
+I190611 05:08:52.608140 1 cli/start.go:765  received signal 'interrupt'
+I190611 05:08:52.629503 1 cli/start.go:830  initiating graceful shutdown of server
+I190611 05:08:52.658916 25387 util/stop/stopper.go:546  [server drain process] quiescing; tasks left:
+1      [async] intent_resolver_ir_batcher
+1      [async] intent_resolver_gc_batcher
+1      [async] closedts-rangefeed-subscriber
+I190611 05:08:52.685450 25387 storage/engine/rocksdb.go:753  closing rocksdb instance at "/Users/dev/go/src/github.com/andrewariza/whoisServer/cockroach-data/cockroach-temp706762308"
+I190611 05:08:52.733420 25387 storage/engine/rocksdb.go:753  closing rocksdb instance at "/Users/dev/go/src/github.com/andrewariza/whoisServer/cockroach-data"
+I190611 05:08:52.767513 1 cli/start.go:876  server drained and shutdown completed
+I190611 05:08:52.784910 1 cli/error.go:229  interrupted
+Error: interrupted
