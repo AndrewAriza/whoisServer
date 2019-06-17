@@ -1,7 +1,8 @@
-run:
-	dep ensure -v -update
-	port=3001 go run main.go 
 
-build: 
+init:
 	dep ensure -v -update
+run:
+	port=3001 go run main.go 
+build: 
+	make init
 	go build -v -o dist/whoisServer
