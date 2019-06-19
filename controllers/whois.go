@@ -2,8 +2,10 @@ package controllers
 
 import (
 	"encoding/json"
+	"fmt"
 	"net/http"
 	"reflect"
+	"regexp"
 	"strings"
 	"time"
 
@@ -15,6 +17,12 @@ import (
 
 func Whois(w http.ResponseWriter, r *http.Request) {
 	domainName := strings.ToLower(chi.URLParam(r, "domain"))
+
+	regex, _ := regexp.Compile("([a-zA-Z0-9-_]+.)*[a-zA-Z0-9][a-zA-Z0-9-_]+.[a-zA-Z]{2,11}")
+	if !regex.MatchString(domainName) {
+		w.WriteHeader(400)
+		utils.Catch(w, fmt.Errorf("Domain %s is invalid", domainName))
+	}
 
 	client := &http.Client{Timeout: 10 * time.Second}
 	response, err := client.Get("https://api.ssllabs.com/api/v3/analyze?host=" + domainName)

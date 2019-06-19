@@ -16,7 +16,9 @@ func Catch(w http.ResponseWriter, err error) {
 		warning("ERROR :::", payload)
 
 		w.Header().Set("Content-Type", "application/json")
-		w.WriteHeader(500)
+		if w.Header() != nil {
+			w.WriteHeader(500)
+		}
 		w.Write(response)
 		panic(nil)
 	}
